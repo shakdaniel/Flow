@@ -1,0 +1,9 @@
+{
+  "name": "Flow",
+  "author": "Shak Daniel",
+  "description": "Workflow Starter",
+  "version": "0.0.1",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {}
+}
