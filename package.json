@@ -1,10 +1,12 @@
 {
-  "name": "Flow",
+  "name": "GulpFlow",
+  "version": "0.0.0",
+  "description": "Gulp Workflow",
   "author": "Shak Daniel",
-  "description": "Workflow Starter",
-  "version": "0.0.1",
   "main": "gulpfile.js",
-  "dependencies": {
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shakdaniel/Flow.git"
   },
   "devDependencies": {
     "gulp": "^3.6.2",
