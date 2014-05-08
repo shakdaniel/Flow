@@ -40,3 +40,9 @@ var gulp = require('gulp'),
     watch = require('gulp-watch'),
     livereload = require('gulp-livereload'),
     browserSync = require('browser-sync');
+
+
+
+gulp.task('default', function() {
+  // place code for your default task here
+});
