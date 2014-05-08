@@ -41,8 +41,32 @@ var gulp = require('gulp'),
   livereload = require('gulp-livereload'),
   browserSync = require('browser-sync');
 
-
-
 gulp.task('default', function() {
   // place code for your default task here
 });
+
+
+
+var paths = {
+  scripts: ['client/js/**/*.coffee', '!client/external/**/*.coffee'],
+  images: 'client/img/**/*'
+};
+
+var target = {
+  sass_src: 'scss/**/*.scss', // all sass files
+  css_dest: 'css', // where to put minified css
+  js_lint_src: [ // all js that should be linted
+    'js/build/app.js',
+    'js/build/custom/switch.js',
+    'js/build/custom/scheme-loader.js'
+  ],
+  js_uglify_src: [ // all js files that should not be concatinated
+    'js/build/custom/scheme-loader.js',
+    'js/build/vendor/modernizr.js'
+  ],
+  js_concat_src: [ // all js files that should be concatinated
+    'js/build/custom/switch.js',
+    'js/build/app.js'
+  ],
+  js_dest: 'js' // where to put minified js
+};
