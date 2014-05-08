@@ -1,6 +1,6 @@
-/****************************
+/******************************************************
 GULP DEPENDENCIES & PLUGINS
-*****************************/
+*******************************************************/
 // gulp: 			node task runner
 // clean:  		 	removes files/folders
 // jade:   		 	compile jade into html files
@@ -12,7 +12,7 @@ GULP DEPENDENCIES & PLUGINS
 // uglify: 		 	minify js files
 // concat: 		 	merge all js files into one file
 // rename: 		 	chanage file names
-// filesize: 	 	chanage file names
+// filesize: 	 	logs sizes in readable strings
 // changes: 	 	pass only changed files
 // imagemin: 	 	minify png jpeg gif svg files
 // notify: 		 	send notification messages
@@ -39,4 +39,4 @@ var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     watch = require('gulp-watch'),
     livereload = require('gulp-livereload'),
-    browserSync = require('browser-sync'),;
+    browserSync = require('browser-sync');

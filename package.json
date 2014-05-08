@@ -4,7 +4,8 @@
   "description": "Workflow Starter",
   "version": "0.0.1",
   "main": "gulpfile.js",
-  "dependencies": {},
+  "dependencies": {
+  },
   "devDependencies": {
     "gulp": "^3.6.2",
     "gulp-clean": "^0.2.4",
