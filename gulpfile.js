@@ -2,7 +2,6 @@
 GULP DEPENDENCIES & PLUGINS
 *******************************************************/
 // gulp:            node task runner
-// clean:           removes files/folders
 // jade:            compile jade into html files
 // stylus:          compile stly into css files
 // autoprefixer:    sets missing browser prefixes
@@ -22,51 +21,82 @@ GULP DEPENDENCIES & PLUGINS
 // browsersync:     live css reload & browser syncing
 
 var gulp = require('gulp'),
-  clean = require('gulp-clean'),
-  jade = require('gulp-jade'),
-  stylus = require('gulp-stylus'),
-  autoprefixer = require('gulp-autoprefixer'),
-  minifycss = require('gulp-minify-css'),
-  jshint = require('gulp-jshint'),
-  stylish = require('jshint-stylish'),
-  uglify = require('gulp-uglify'),
-  concat = require('gulp-concat'),
-  rename = require('gulp-rename'),
-  filesize = require('gulp-filesize'),
-  changed = require('gulp-changed'),
-  imagemin = require('gulp-imagemin'),
-  notify = require('gulp-notify'),
-  plumber = require('gulp-plumber'),
-  watch = require('gulp-watch'),
-  livereload = require('gulp-livereload'),
-  browserSync = require('browser-sync');
-
-gulp.task('default', function() {
-  // place code for your default task here
-});
-
-
+    jade = require('gulp-jade'),
+    stylus = require('gulp-stylus'),
+    autoprefixer = require('gulp-autoprefixer'),
+    minifycss = require('gulp-minify-css'),
+    jshint = require('gulp-jshint'),
+    stylish = require('jshint-stylish'),
+    uglify = require('gulp-uglify'),
+    concat = require('gulp-concat'),
+    rename = require('gulp-rename'),
+    filesize = require('gulp-filesize'),
+    changed = require('gulp-changed'),
+    imagemin = require('gulp-imagemin'),
+    notify = require('gulp-notify'),
+    plumber = require('gulp-plumber'),
+    watch = require('gulp-watch'),
+    livereload = require('gulp-livereload'),
+    browserSync = require('browser-sync');
 
 var paths = {
-  scripts: ['client/js/**/*.coffee', '!client/external/**/*.coffee'],
-  images: 'client/img/**/*'
-};
+	jade_src: 'src/templates/**/*.jade',
+	html_dest: 'builds/development',
+	styl_src: 'src/styl/**/*.styl',
+	css_dest: 'builds/development/css/',
+	img_src: 'src/images/**'
+}
+gulp.task('jade', function() {
+    return gulp.src(paths.jade_src)
+        .pipe(jade())
+        .pipe(gulp.dest(paths.html_dest));
+});
+gulp.task('stylus', function() {
+    return gulp.src(paths.styl_src)
+        .pipe(stylus())
+        .pipe(gulp.dest(paths.css_dest));
+});
 
-var target = {
-  sass_src: 'scss/**/*.scss', // all sass files
-  css_dest: 'css', // where to put minified css
-  js_lint_src: [ // all js that should be linted
-    'js/build/app.js',
-    'js/build/custom/switch.js',
-    'js/build/custom/scheme-loader.js'
-  ],
-  js_uglify_src: [ // all js files that should not be concatinated
-    'js/build/custom/scheme-loader.js',
-    'js/build/vendor/modernizr.js'
-  ],
-  js_concat_src: [ // all js files that should be concatinated
-    'js/build/custom/switch.js',
-    'js/build/app.js'
-  ],
-  js_dest: 'js' // where to put minified js
-};
+gulp.task('default', ['jade', 'stylus']);
+
+
+
+
+
+
+
+// var paths = {
+// 	templates: "src/templates/**/*.jade" 
+// 	styls: "src/styl/**/*.styl",
+//     scripts: 'src/js/**/*.js',
+//     images: 'src/images/**/*'
+// };
+// // Rerun the task when a file changes
+// gulp.task('watch', function() {
+//     gulp.watch(paths.scripts, ['scripts']);
+//     gulp.watch(paths.images, ['images']);
+// });
+
+// // The default task (called when you run `gulp` from cli)
+// gulp.task('default', ['watch']);
+
+
+
+// var target = {
+//     sass_src: 'scss/**/*.scss', // all sass files
+//     css_dest: 'css', // where to put minified css
+//     js_lint_src: [ // all js that should be linted
+//         'js/build/app.js',
+//         'js/build/custom/switch.js',
+//         'js/build/custom/scheme-loader.js'
+//     ],
+//     js_uglify_src: [ // all js files that should not be concatinated
+//         'js/build/custom/scheme-loader.js',
+//         'js/build/vendor/modernizr.js'
+//     ],
+//     js_concat_src: [ // all js files that should be concatinated
+//         'js/build/custom/switch.js',
+//         'js/build/app.js'
+//     ],
+//     js_dest: 'js' // where to put minified js
+// };
