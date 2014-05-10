@@ -4,8 +4,8 @@ GULP DEPENDENCIES & PLUGINS
 // gulp:            node task runner
 // jade:            compile jade into html files
 // stylus:          compile stly into css files
-// autoprefixer:    sets missing browser prefixes
-// minifycss:       minify css files
+// prefix:    sets missing browser prefixes
+// mincss:       minify css files
 // jshint:          debug js files
 // stylish:         make jshint style pretty
 // uglify:          minify js files
@@ -23,8 +23,8 @@ GULP DEPENDENCIES & PLUGINS
 var gulp = require('gulp'),
     jade = require('gulp-jade'),
     stylus = require('gulp-stylus'),
-    autoprefixer = require('gulp-autoprefixer'),
-    minifycss = require('gulp-minify-css'),
+    prefix = require('gulp-autoprefixer'),
+    mincss = require('gulp-minify-css'),
     jshint = require('gulp-jshint'),
     stylish = require('jshint-stylish'),
     uglify = require('gulp-uglify'),
@@ -40,11 +40,11 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync');
 
 var paths = {
-	jade_src: 'src/templates/**/*.jade',
-	html_dest: 'builds/development',
-	styl_src: 'src/styl/**/*.styl',
-	css_dest: 'builds/development/css/',
-	img_src: 'src/images/**'
+    jade_src: 'src/templates/**/*.jade',
+    html_dest: 'builds/development',
+    styl_src: 'src/styl/**/*.styl',
+    css_dest: 'builds/development/css/',
+    img_src: 'src/images/**'
 }
 gulp.task('jade', function() {
     return gulp.src(paths.jade_src)
@@ -53,8 +53,13 @@ gulp.task('jade', function() {
 });
 gulp.task('stylus', function() {
     return gulp.src(paths.styl_src)
+    	.pipe(plumber())
         .pipe(stylus())
-        .pipe(gulp.dest(paths.css_dest));
+        .pipe(prefix("last 2 version", "> 1%", 'ie 9', "ie 8", "ie 7"))
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(mincss())
+        .pipe(gulp.dest(paths.css_dest))
+        .pipe(notify({message: 'Stylus processed!'}));
 });
 
 gulp.task('default', ['jade', 'stylus']);
