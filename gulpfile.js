@@ -44,7 +44,8 @@ var paths = {
     html_dest: 'builds/development',
     styl_src: 'src/styl/**/*.styl',
     css_dest: 'builds/development/css/',
-    img_src: 'src/images/**'
+    img_src: 'src/images/**',
+    img_dest: 'builds/development/images'
 }
 gulp.task('jade', function() {
     return gulp.src(paths.jade_src)
