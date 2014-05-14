@@ -8,26 +8,31 @@
     "type": "git",
     "url": "https://github.com/shakdaniel/Flow.git"
   },
+  "dependencies": {
+    "express": "^4.2.0"
+  },
   "devDependencies": {
     "gulp": "^3.6.2",
+    "gulp-changed": "^0.3.0",
     "gulp-clean": "^0.2.4",
     "gulp-jade": "^0.5.0",
     "gulp-stylus": "^1.0.0",
+    "nib": "^1.0.2",
     "gulp-autoprefixer": "0.0.7",
     "gulp-minify-css": "^0.3.4",
-    "gulp-jshint": "^1.5.5",
     "gulp-jshint": "^1.5.5",
     "jshint-stylish": "^0.2.0",
     "gulp-uglify": "^0.2.1",
     "gulp-concat": "^2.2.0",
     "gulp-rename": "^1.2.0",
     "gulp-filesize": "0.0.6",
-    "gulp-changed": "^0.3.0",
     "gulp-imagemin": "^0.5.0",
     "gulp-notify": "^1.2.5",
     "gulp-plumber": "^0.6.1",
     "gulp-watch": "^0.6.4",
     "gulp-livereload": "^1.5.0",
-    "browser-sync": "^0.9.1"
+    "browser-sync": "^0.9.1",
+    "gulp-cache": "^0.1.11",
+    "imagemin-pngcrush": "^0.1.0"
   }
 }
