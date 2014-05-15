@@ -1,6 +1,6 @@
 {
   "name": "GulpFlow",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Gulp Workflow",
   "author": "Shak Daniel",
   "main": "gulpfile.js",
