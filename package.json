@@ -13,7 +13,6 @@
   },
   "devDependencies": {
     "gulp": "^3.6.2",
-    "gulp-changed": "^0.3.0",
     "gulp-jade": "^0.5.0",
     "gulp-stylus": "^1.0.0",
     "gulp-autoprefixer": "0.0.7",
@@ -22,18 +21,14 @@
     "jshint-stylish": "^0.2.0",
     "gulp-uglify": "^0.2.1",
     "gulp-concat": "^2.2.0",
-    "gulp-rename": "^1.2.0",
-    "gulp-filesize": "0.0.6",
     "gulp-imagemin": "^0.5.0",
-    "gulp-notify": "^1.2.5",
-    "gulp-plumber": "^0.6.1",
-    "gulp-watch": "^0.6.4",
-    "gulp-livereload": "^1.5.0",
-    "browser-sync": "^0.9.1",
     "imagemin-pngcrush": "^0.1.0",
-    "gulp-size": "^0.3.1",
+    "gulp-rename": "^1.2.0",
     "gulp-clean": "^0.2.4",
     "gulp-newer": "^0.3.0",
-    "gulp-cache": "^0.1.11"
+    "gulp-filesize": "0.0.6",
+    "gulp-size": "^0.3.1",
+    "gulp-notify": "^1.2.5",
+    "browser-sync": "^0.9.1"
   }
 }
