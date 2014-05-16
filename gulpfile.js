@@ -2,7 +2,7 @@
 var gulp = require('gulp'),
     jade = require('gulp-jade'),
     stylus = require('gulp-stylus'),
-    prefixer = require('gulp-autoprefixer'),
+    prefix = require('gulp-autoprefixer'),
     mincss = require('gulp-minify-css'),
     jshint = require('gulp-jshint'),
     stylish = require('jshint-stylish'),
@@ -42,6 +42,7 @@ gulp.task('css', function() {
     return gulp.src(css_src)
         .pipe(newer(css_dest))
         .pipe(stylus())
+        .pipe(prefix("last 1 version", "> 1%", "ie 8", "ie 7", { cascade: true }))
         .pipe(mincss())
         .pipe(rename({
             suffix: '.min'
@@ -59,7 +60,7 @@ gulp.task('jshint', function() {
 // JS
 gulp.task('js', function() {
     return gulp.src('dev/js/main.js')
-    	.pipe(newer(js_dest))
+        .pipe(newer(js_dest))
         .pipe(jshint())
         .pipe(jshint.reporter(stylish))
         .pipe(concat('custom.min.js'))
@@ -83,18 +84,18 @@ gulp.task('img', function() {
 });
 
 // FILE SIZES
-gulp.task('totalsize', function() {
+gulp.task('size', function() {
     return gulp.src('public/**/*')
         .pipe(totalsize());
 });
 
 // WATCH
 gulp.task('watch', function() {
-    gulp.watch(html_src, ['html']);
-    gulp.watch(css_src, ['css']);
-    gulp.watch(js_src, ['js']);
-    gulp.watch(img_src, ['img']);
-    gulp.watch('public/**/*', ['totalsize']);
+    gulp.watch('dev/templates/**/*', ['html']);
+    gulp.watch('dev/styl/**/*', ['css']);
+    gulp.watch('dev/js/**/*', ['js']);
+    gulp.watch('dev/images/**/*', ['img']);
+    gulp.watch('public/**/*', ['size']);
 });
 
 // BROWSER SYNC
