@@ -42,7 +42,9 @@ gulp.task('css', function() {
     return gulp.src(css_src)
         .pipe(newer(css_dest))
         .pipe(stylus())
-        .pipe(prefix("last 1 version", "> 1%", "ie 8", "ie 7", { cascade: true }))
+        .pipe(prefix('last 5 version', '> 1%', 'ie 8', 'ie 7', {
+            cascade: true
+        }))
         .pipe(mincss())
         .pipe(rename({
             suffix: '.min'
