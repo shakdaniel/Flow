@@ -21,12 +21,12 @@ var gulp = require('gulp'),
 // PATHS TO FOLDERS
 var html_src = 'dev/templates/*.jade',
     html_dest = 'public/',
-    css_src = 'dev/styl/*.styl',
+    css_src = 'dev/styles/*.styl',
     css_dest = 'public/css/',
-    js_src = 'dev/js/*.js',
+    js_src = 'dev/scripts/*.js',
     js_dest = 'public/js/',
     img_src = 'dev/images/*',
-    img_dest = 'public/images/';
+    img_dest = 'public/imgs/';
 
 // HTML
 gulp.task('html', function() {
@@ -59,14 +59,27 @@ gulp.task('jshint', function() {
         .pipe(jshint())
         .pipe(jshint.reporter(stylish));
 });
+
 // JS
-gulp.task('js', function() {
-    return gulp.src('dev/js/main.js')
+gulp.task('jsconcat', function() {
+    return gulp.src(['dev/scripts/main.js'])
         .pipe(newer(js_dest))
-        .pipe(jshint())
-        .pipe(jshint.reporter(stylish))
         .pipe(concat('custom.min.js'))
         .pipe(uglify())
+        .pipe(filesize())
+        .pipe(gulp.dest(js_dest));
+});
+
+// JS COMPRESS
+gulp.task('js', function() {
+    return gulp.src(js_src)
+        .pipe(newer(js_dest))
+        .pipe(uglify({
+            mangle: false
+        }))
+        .pipe(rename({
+            suffix: '.min'
+        }))
         .pipe(filesize())
         .pipe(gulp.dest(js_dest));
 });
@@ -94,8 +107,8 @@ gulp.task('size', function() {
 // WATCH
 gulp.task('watch', function() {
     gulp.watch('dev/templates/**/*', ['html']);
-    gulp.watch('dev/styl/**/*', ['css']);
-    gulp.watch('dev/js/**/*', ['js']);
+    gulp.watch('dev/styles/**/*', ['css']);
+    gulp.watch('dev/scripts/**/*', ['js']);
     gulp.watch('dev/images/**/*', ['img']);
     gulp.watch('public/**/*', ['size']);
 });

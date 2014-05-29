@@ -1,9 +1,13 @@
 doctype html
-html(lang="en")
+html(lang='en')
 	include includes/head
-	body
+	body(ng-app='routerApp')
+		// Header
+		include includes/header
+
+		// Angular View 
 		.container
-			include includes/header
-			p. Lorem ipsum Cillum laboris cupidatat Excepteur laborum ullamco anim magna fugiat aliquip Duis dolor in est ex voluptate sint anim voluptate sint in voluptate ut consectetur officia sint laborum sit id ut in fugiat Duis esse dolore reprehenderit enim ut culpa amet sunt ut magna in dolor dolore reprehenderit dolore commodo pariatur nulla fugiat ut deserunt in aliqua dolore Ut elit exercitation ea dolore pariatur sunt occaecat cillum adipisicing veniam Duis dolore adipisicing sint ullamco voluptate qui laborum amet velit minim ex esse labore qui sit cupidatat irure amet sed deserunt esse tempor velit Ut do esse cillum cillum occaecat mollit culpa ut minim non cillum culpa et reprehenderit sint cupidatat id ut esse sunt culpa nostrud dolore tempor dolor reprehenderit id sit qui adipisicing Excepteur aliqua laboris velit eu sint proident dolore ad Ut ullamco commodo culpa cillum Excepteur nulla laboris laborum quis enim sit velit consectetur veniam sint dolore aute eu sunt aliqua consequat ut cillum irure in officia id labore qui Duis ullamco nostrud culpa velit nisi fugiat magna esse Excepteur ut cupidatat velit cupidatat officia in Excepteur Duis minim sit ullamco labore minim Ut in et anim minim cupidatat eiusmod mollit eu et pariatur qui enim sed ad veniam officia aute esse elit irure qui veniam dolore commodo in reprehenderit ut tempor tempor mollit proident ut sit in sed sit in dolor culpa dolor sint dolor labore nisi incididunt ullamco enim commodo dolore eu proident proident aute ullamco et pariatur.
-			include includes/footer
-		include includes/scripts
+			div(ui-view)
+
+		// Footer
+		include includes/footer
