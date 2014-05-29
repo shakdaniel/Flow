@@ -20,6 +20,7 @@ var gulp = require('gulp'),
 
 // PATHS TO FOLDERS
 var html_src = 'dev/templates/*.jade',
+    html_page_src = 'dev/templates/pages/*.jade',
     html_dest = 'public/',
     css_src = 'dev/styles/*.styl',
     css_dest = 'public/css/',
@@ -30,7 +31,7 @@ var html_src = 'dev/templates/*.jade',
 
 // HTML
 gulp.task('html', function() {
-    return gulp.src(html_src)
+    return gulp.src([html_src, html_page_src])
         .pipe(newer(html_dest))
         .pipe(jade())
         .pipe(filesize())

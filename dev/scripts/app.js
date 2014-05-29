@@ -1,7 +1,9 @@
 // app.js
 var routerApp = angular.module('routerApp', ['ui.router']);
 
-routerApp.config(function($stateProvider, $urlRouterProvider) {
+routerApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+
+    $locationProvider.html5Mode(true);
 
     $urlRouterProvider.otherwise('/');
 
@@ -18,13 +20,18 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
     })
 
     .state('contact', {
-    	url: '/contact',
-    	templateUrl: 'contact.html'  
+        url: '/contact',
+        templateUrl: 'contact.html'
     })
 
     .state('services', {
-    	url: '/services',
-    	templateUrl: 'services.html'   
+        url: '/services',
+        templateUrl: 'services.html'
+    })
+
+    .state('login', {
+        url: '/login',
+        templateUrl: 'login.html'
     });
 
 });
