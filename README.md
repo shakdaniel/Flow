@@ -7,7 +7,7 @@ Let's Get Started
 ------
 
 **Clone Repository**
-```
+```bash
 # Get The Latest Directory
 git clone https://github.com/shakdaniel/Flow.git
 
