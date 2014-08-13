@@ -1,4 +1,4 @@
-work≈ƒ≈low
+≈FLOW≈
 ===
 This is a starter application aimed to improve productivity and workflow.
 
