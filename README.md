@@ -6,7 +6,7 @@ This is a starter application aimed to improve productivity and workflow.
 Let's Get Started
 ------
 ```bash
-echo -e "\e[100mGet the latest directory"
+// Get the latest directory
 git clone https://github.com/shakdaniel/Flow.git
 
 # Change directory to project
