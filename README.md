@@ -20,3 +20,6 @@ gulp
 
 Directory Layout
 ---
+	config/
+		classified.js
+		passport.js
