@@ -1,20 +1,22 @@
 Flow
 ===
-
 This is a starter application aimed to improve productivity and workflow.
 
 Let's Get Started
-------
+---
 ```bash
 # Get the latest repository
 git clone https://github.com/shakdaniel/Flow.git
 
-# Change directory to project
+# Change the directory to project
 cd Flow
 
-# Installs dependencies
+# Installs the dependencies
 npm install
 
-# Start project
+# Start up the project
 gulp
 ```
+
+Directory Layout
+---
