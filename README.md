@@ -6,15 +6,15 @@ This is a starter application aimed to improve productivity and workflow.
 Let's Get Started
 ------
 ```bash
-// Get the latest directory
+# Get the latest repository
 git clone https://github.com/shakdaniel/Flow.git
 
 # Change directory to project
 cd Flow
 
-# Install all NPM dependencies
+# Installs dependencies
 npm install
 
-# Start up the project
+# Start project
 gulp
 ```
