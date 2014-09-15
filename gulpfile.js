@@ -1,26 +1,32 @@
-// GULP DEPENDENCIES & PLUGINS
-var gulp = require('gulp'),
-    jade = require('gulp-jade'),
-    stylus = require('gulp-stylus'),
-    prefix = require('gulp-autoprefixer'),
-    mincss = require('gulp-minify-css'),
-    jshint = require('gulp-jshint'),
-    stylish = require('jshint-stylish'),
-    uglify = require('gulp-uglify'),
-    concat = require('gulp-concat'),
-    imagemin = require('gulp-imagemin'),
-    pngcrush = require('imagemin-pngcrush'),
-    rename = require('gulp-rename'),
-    clean = require('gulp-clean'),
-    newer = require('gulp-newer'),
-    filesize = require('gulp-filesize'),
-    totalsize = require('gulp-size'),
-    notify = require('gulp-notify'),
+// name: "Workflow"
+// description: "Workflow Framework"
+// author: "Shak Daniel <web.designs@me.com>"
+// url: "https://github.com/shakdaniel/Flow.git"
+
+'use strict';
+
+// Include Gulp, Plugins & Tools.
+var gulp        = require('gulp'),
+    prefix      = require('gulp-autoprefixer'),
+    rimraf      = require('gulp-rimraf'),
+    concat      = require('gulp-concat'),
+    filesize    = require('gulp-filesize'),
+    imagemin    = require('gulp-imagemin'),
+    jade        = require('gulp-jade'),
+    stylus      = require('gulp-stylus'),
+    mincss      = require('gulp-minify-css'),
+    jshint      = require('gulp-jshint'),
+    stylish     = require('jshint-stylish'),
+    uglify      = require('gulp-uglify'),
+    rename      = require('gulp-rename'),
+    newer       = require('gulp-newer'),
+    totalsize   = require('gulp-size'),
+    notify      = require('gulp-notify'),
+    pngcrush    = require('imagemin-pngcrush'),
     browserSync = require('browser-sync');
 
-// PATHS TO FOLDERS
+// Paths to Folders.
 var html_src = 'dev/templates/*.jade',
-    html_page_src = 'dev/templates/pages/*.jade',
     html_dest = 'public/',
     css_src = 'dev/styles/*.styl',
     css_dest = 'public/css/',
@@ -29,10 +35,30 @@ var html_src = 'dev/templates/*.jade',
     img_src = 'dev/images/*',
     img_dest = 'public/imgs/';
 
+// Browsers to Autoprefix.
+var browsers = [
+    'ie >= 10',
+    'ie_mob >= 10',
+    'ff >= 30',
+    'chrome >= 34',
+    'safari >= 7',
+    'opera >= 23',
+    'ios >= 7',
+    'android >= 4.4',
+    'bb >= 10'
+];
+
 // HTML
+/*
 gulp.task('html', function() {
-    return gulp.src([html_src, html_page_src])
+    return gulp.src(html_src)
         .pipe(newer(html_dest))
+        .pipe(jade())
+        .pipe(filesize())
+        .pipe(gulp.dest(html_dest));
+});*/
+gulp.task('html', function() {
+    return gulp.src(html_src)
         .pipe(jade())
         .pipe(filesize())
         .pipe(gulp.dest(html_dest));
@@ -123,5 +149,6 @@ gulp.task('sync', function() {
     });
 });
 
-// DEFAULT
+
+// Default Task
 gulp.task('default', ['html', 'css', 'js', 'img', 'watch', 'sync']);

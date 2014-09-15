@@ -1,5 +1,9 @@
 head
 	meta(charset='utf-8')
+	meta(name='fragment' content='!')
+	// We define the SEO variables we want to dynamically update
+	title('Flow App | '{{ seo.pageTitle }})
+	meta(name="description" content="{{ seo.metaDescription }}")
 	meta(name='viewport', content='width=device-width, initial-scale=1.0')
 	link(rel='stylesheet', type='text/css', href='css/main.min.css')
 	script(src='js/angular.min.js')

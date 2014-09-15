@@ -1,11 +1,11 @@
 header
-	nav(role='navigation')
+	nav.navigation
 		mixin a(href, name)
-			a(ui-sref=href, ui-sref-active='active', class!=attributes.class)= name
-		+a('home', 'Project')(class='logo')
-		ul(class='menu')
-			li: +a('about', 'About')(class='btn')
-			li: +a('contact', 'Contact')(class='btn')
-			li: +a('services', 'Services')(class='btn')
-		ul(class='login')
-			li: +a('login', 'Login')(class='dropdown')
+			a(ui-sref=href, ui-sref-active='active', class!=attributes.class)=name
+		+a('home', 'Project').logo
+		ul.menu
+			li: +a('about', 'About').btn
+			li: +a('contact', 'Contact').btn
+			li: +a('services', 'Services').btn
+		ul.login
+			li: +a('login', 'Login').dropdown

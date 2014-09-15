@@ -1,0 +1,8 @@
+{
+  "name": "Flow",
+  "dependencies": {
+    "angular": "1.x.x",
+    "angular-ui-router": "0.2.x",
+    "angular-seo": "*"
+  }
+}
