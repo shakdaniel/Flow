@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 Flow
+=======
+≈ WorkFlow ≈
+>>>>>>> 503a6028ef8aeec8c4c42396209fa2fccace8b9b
 ===
 This is a starter application aimed to improve productivity and workflow.
 
@@ -20,6 +24,7 @@ gulp
 
 Directory Layout
 ---
+<<<<<<< HEAD
 
 	config/
 		classified.js
@@ -83,3 +88,8 @@ Moment.js
 ------
 
 ------
+=======
+	config/
+		classified.js
+		passport.js
+>>>>>>> 503a6028ef8aeec8c4c42396209fa2fccace8b9b
